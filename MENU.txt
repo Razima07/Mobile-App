@@ -1,0 +1,71 @@
+MAIN ACT
+
+package com.example.menu;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+
+  public class MainActivity extends AppCompatActivity {
+      View view;
+
+    @Override
+    public boolean onCreateOptionMenu(Menu menu)
+    {
+       getMenuInflater().inflate(R.menu.colormenu,menu);
+       return super.onCreateOptionsMenu(menu);
+    }
+
+
+   @Override
+    public boolean onOptionsItemSelect(MenuItem item)
+    {
+        switch(item.getItemId())
+        {
+            case R.id.red:
+                view.setBackgroundColor(Color.RED);
+                break;
+
+            case R.id.blue:
+                view.setBackgroundColor(Color.BLUE);
+                break;
+
+            case R.id.green:
+                view.setBackgroundColor(Color.GREEN);
+                break;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        view=(View)findViewById(R.id.myview);
+    }
+}
+
+
+XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    android:id="@+id/myview">
+
+
+
+</LinearLayout>
